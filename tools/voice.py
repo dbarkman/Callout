@@ -14,10 +14,16 @@ p.add_argument("--text", required=True)
 p.add_argument("--out", required=True)
 p.add_argument("--stability", type=float, default=0.5)
 p.add_argument("--style", type=float, default=0.3)
+p.add_argument("--previous-text", default=None, help="text spoken before, for matching delivery")
+p.add_argument("--next-text", default=None)
 p.add_argument("--speed", type=float, default=1.0, help="0.7-1.2")
 a = p.parse_args()
 body = {"text": a.text, "model_id": "eleven_multilingual_v2",
         "voice_settings": {"stability": a.stability, "similarity_boost": 0.8, "style": a.style, "use_speaker_boost": True, "speed": a.speed}}
+if a.previous_text:
+    body["previous_text"] = a.previous_text
+if a.next_text:
+    body["next_text"] = a.next_text
 audio, headers = sfx.request("POST", f"/v1/text-to-speech/{a.voice}?output_format=mp3_44100_128", body, accept="audio/mpeg")
 with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as t:
     t.write(audio); mp3 = t.name

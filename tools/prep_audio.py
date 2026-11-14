@@ -45,14 +45,9 @@ tick = [0.5 * 32768 * math.sin(2 * math.pi * 1400 * i / sr) * min(1, i / (sr * 0
 write(f"{DST}/tick.wav", tick, sr)
 print("tick: 0.07s")
 
-# Chime: a two-note digital chime (C6 then E6), each a sine with a soft third harmonic and a bell decay.
-def note(freq, start, length=0.45):
-    return [(start + i, 0.42 * 32768 * min(1, i / (sr * 0.003)) * math.exp(-i / (sr * 0.12))
-             * (math.sin(2 * math.pi * freq * i / sr) + 0.2 * math.sin(2 * math.pi * 3 * freq * i / sr)))
-            for i in range(int(sr * length))]
-chime = [0.0] * int(sr * 0.6)
-for i, v in note(1046.5, 0) + note(1318.5, int(sr * 0.13)):
-    if i < len(chime):
-        chime[i] += v
+# Chime: a single digital ding (E6), a sine with a soft octave and a bell decay.
+chime = [0.5 * 32768 * min(1, i / (sr * 0.003)) * math.exp(-i / (sr * 0.16))
+         * (math.sin(2 * math.pi * 1318.5 * i / sr) + 0.15 * math.sin(2 * math.pi * 2637 * i / sr))
+         for i in range(int(sr * 0.7))]
 write(f"{DST}/chime.wav", chime, sr)
-print("chime: 0.60s")
+print("chime: 0.70s")

@@ -4,7 +4,7 @@ Voice lines come from ElevenLabs text-to-speech, voice "Brian" (`nPczCjzI2devNBz
 
 | File | Cue | Source |
 |---|---|---|
-| chime.wav | 0:45 | Synthesized two-note digital chime (C6 then E6) |
+| chime.wav | 0:45 | Synthesized single digital ding (E6) |
 | thirty.wav | 0:30 | TTS "Thirty seconds!" |
 | fifteen.wav | 0:15 | TTS "Fifteen!" |
 | ten.wav | 0:10 | TTS "Ten!" |
