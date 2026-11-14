@@ -7,22 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003603CE9FC791DA2A85CE62 /* cheer2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5AB4BDACCF95FE5AAC5D7E2C /* cheer2.wav */; };
 		05195E3F662A65500B004AB1 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F39EFE4A539863F422C02 /* TimerModel.swift */; };
+		085028CAFD2143006D3B4ECC /* chime.wav in Resources */ = {isa = PBXBuildFile; fileRef = B47B3C1DA4A5531EC9595C2B /* chime.wav */; };
 		08883DDA6CED6289B5DD55B9 /* thirty.wav in Resources */ = {isa = PBXBuildFile; fileRef = 87972AFD899DEBAC5A96285D /* thirty.wav */; };
 		0CBBE88F6B2AEB72D7424D30 /* CueAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769E1155C45A47F860C87DB8 /* CueAudio.swift */; };
 		145DB68AE72E9F49C084E0B5 /* one.wav in Resources */ = {isa = PBXBuildFile; fileRef = 086BAEA2CBB46A6D1660AE60 /* one.wav */; };
 		3A1CADEB2C9B9D5835B5BE23 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30B2D84F42101A201A5EB9 /* Palette.swift */; };
 		4E7D4224C1A03B2CAAD6513B /* CalloutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7202EF25BA6AF22D32C003D /* CalloutApp.swift */; };
 		54CCF1FE23124B4EE24C8A4B /* fifteen.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1DD91068E0E80D62C6C22BF /* fifteen.wav */; };
-		622FD3952FC35A7A7D78823F /* fanfare1.wav in Resources */ = {isa = PBXBuildFile; fileRef = A9EBB6A7E85FA0BDF21DDDF4 /* fanfare1.wav */; };
 		7713D91F25972FEA2AC35397 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB62438EC1C3254D43D832CE /* TimerView.swift */; };
 		8D76BFDA96B7ECF2DDF36DB3 /* CalloutCore in Frameworks */ = {isa = PBXBuildFile; productRef = B0D08D66EC03D639DBE6A606 /* CalloutCore */; };
 		A3E308EE62DBAA167555864A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7303DB7A9494CEC3D8D0E154 /* Assets.xcassets */; };
-		AEC91835347AA1F1B7067AF8 /* fanfare2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E3977AAF2E8C2BFFC1558D6 /* fanfare2.wav */; };
+		BB87CE60E46402D436BB090A /* cheer3.wav in Resources */ = {isa = PBXBuildFile; fileRef = ABBE7A05A7CACE2341C3D9E3 /* cheer3.wav */; };
 		D7F57482005040FAC54EA160 /* two.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD0F03D85B63CA08CC95F228 /* two.wav */; };
 		DDDF177EFAC1FB9112A9247F /* four.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFCB8FA51FF1B16691384B05 /* four.wav */; };
 		E15D959C7FAA2548C77AD214 /* five.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1AA610B0D03894240C860C6 /* five.wav */; };
 		E6A303CE260212092437BB70 /* ten.wav in Resources */ = {isa = PBXBuildFile; fileRef = 00896412858741AEBDA443CA /* ten.wav */; };
+		EB87CFCC7CF5F4EE77ECFCF1 /* cheer1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 93A71808C16AC0149DF009B9 /* cheer1.wav */; };
 		EC928FB4E837AC743D240E6D /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 67996945ADDE0B3C95D00217 /* tick.wav */; };
 		F8CDBD959560B4D2B73169A6 /* three.wav in Resources */ = {isa = PBXBuildFile; fileRef = D60B2C1B6B440C7BE17283D3 /* three.wav */; };
 /* End PBXBuildFile section */
@@ -34,13 +36,15 @@
 		16E97160A1DF4B7FCD79C8E7 /* CalloutCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CalloutCore; path = CalloutCore; sourceTree = SOURCE_ROOT; };
 		1F30B2D84F42101A201A5EB9 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		410F39EFE4A539863F422C02 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		5AB4BDACCF95FE5AAC5D7E2C /* cheer2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheer2.wav; sourceTree = "<group>"; };
 		67996945ADDE0B3C95D00217 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
 		7303DB7A9494CEC3D8D0E154 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		769E1155C45A47F860C87DB8 /* CueAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueAudio.swift; sourceTree = "<group>"; };
 		87972AFD899DEBAC5A96285D /* thirty.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = thirty.wav; sourceTree = "<group>"; };
-		8E3977AAF2E8C2BFFC1558D6 /* fanfare2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fanfare2.wav; sourceTree = "<group>"; };
+		93A71808C16AC0149DF009B9 /* cheer1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheer1.wav; sourceTree = "<group>"; };
 		A7202EF25BA6AF22D32C003D /* CalloutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutApp.swift; sourceTree = "<group>"; };
-		A9EBB6A7E85FA0BDF21DDDF4 /* fanfare1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fanfare1.wav; sourceTree = "<group>"; };
+		ABBE7A05A7CACE2341C3D9E3 /* cheer3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheer3.wav; sourceTree = "<group>"; };
+		B47B3C1DA4A5531EC9595C2B /* chime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime.wav; sourceTree = "<group>"; };
 		BB62438EC1C3254D43D832CE /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		CD0F03D85B63CA08CC95F228 /* two.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = two.wav; sourceTree = "<group>"; };
 		CFCB8FA51FF1B16691384B05 /* four.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = four.wav; sourceTree = "<group>"; };
@@ -103,8 +107,10 @@
 		ED790264C83CF83BA8A04AF9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				A9EBB6A7E85FA0BDF21DDDF4 /* fanfare1.wav */,
-				8E3977AAF2E8C2BFFC1558D6 /* fanfare2.wav */,
+				93A71808C16AC0149DF009B9 /* cheer1.wav */,
+				5AB4BDACCF95FE5AAC5D7E2C /* cheer2.wav */,
+				ABBE7A05A7CACE2341C3D9E3 /* cheer3.wav */,
+				B47B3C1DA4A5531EC9595C2B /* chime.wav */,
 				D1DD91068E0E80D62C6C22BF /* fifteen.wav */,
 				E1AA610B0D03894240C860C6 /* five.wav */,
 				CFCB8FA51FF1B16691384B05 /* four.wav */,
@@ -184,8 +190,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3E308EE62DBAA167555864A /* Assets.xcassets in Resources */,
-				622FD3952FC35A7A7D78823F /* fanfare1.wav in Resources */,
-				AEC91835347AA1F1B7067AF8 /* fanfare2.wav in Resources */,
+				EB87CFCC7CF5F4EE77ECFCF1 /* cheer1.wav in Resources */,
+				003603CE9FC791DA2A85CE62 /* cheer2.wav in Resources */,
+				BB87CE60E46402D436BB090A /* cheer3.wav in Resources */,
+				085028CAFD2143006D3B4ECC /* chime.wav in Resources */,
 				54CCF1FE23124B4EE24C8A4B /* fifteen.wav in Resources */,
 				E15D959C7FAA2548C77AD214 /* five.wav in Resources */,
 				DDDF177EFAC1FB9112A9247F /* four.wav in Resources */,

@@ -16,7 +16,7 @@ struct TimerView: View {
                 header(status, finished: finished)
                 ring(status, color: color, finished: finished)
                 controls(color: color)
-                Toggle("Repeat rounds", isOn: $model.repeats)
+                Toggle("Repeat", isOn: $model.repeats)
                     .font(.headline)
                     .tint(color)
                     .disabled(model.state == .running || model.state == .paused)

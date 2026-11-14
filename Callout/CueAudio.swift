@@ -5,12 +5,14 @@ import CalloutCore
 ///
 /// Every cue is scheduled ahead of time against the host clock, so timing holds while the phone is
 /// locked or another app is in front. The running engine keeps the app alive in the background
-/// (the `audio` background mode). Voice and ticks share one player; the fanfare has its own so it can
-/// overlap the next round's first cue.
+/// (the `audio` background mode). Short cues alternate between two players, so a voice line that runs
+/// a little long never delays the next one; the cheer has its own player so it can ring into the next round.
 final class CueAudio {
     private let engine = AVAudioEngine()
-    private let voice = AVAudioPlayerNode()
-    private let fanfare = AVAudioPlayerNode()
+    private let voices = [AVAudioPlayerNode(), AVAudioPlayerNode()]
+    private let cheer = AVAudioPlayerNode()
+    private var nextVoice = 0
+    private var players: [AVAudioPlayerNode] { voices + [cheer] }
     private var buffers: [CueSound: [AVAudioPCMBuffer]] = [:]
 
     /// Called on the main actor when audio stops underneath a session: a call, Siri, or an engine reset.
@@ -18,18 +20,18 @@ final class CueAudio {
 
     init() {
         let files: [CueSound: [String]] = [
-            .thirty: ["thirty"], .fifteen: ["fifteen"], .ten: ["ten"],
+            .chime: ["chime"], .thirty: ["thirty"], .fifteen: ["fifteen"], .ten: ["ten"],
             .five: ["five"], .four: ["four"], .three: ["three"], .two: ["two"], .one: ["one"],
-            .tick: ["tick"], .fanfare: ["fanfare1", "fanfare2"],
+            .tick: ["tick"], .cheer: ["cheer1", "cheer2", "cheer3"],
         ]
         for (sound, names) in files {
             buffers[sound] = names.compactMap(Self.load)
         }
         let format = buffers[.tick]?.first?.format
-        engine.attach(voice)
-        engine.attach(fanfare)
-        engine.connect(voice, to: engine.mainMixerNode, format: format)
-        engine.connect(fanfare, to: engine.mainMixerNode, format: format)
+        for player in players {
+            engine.attach(player)
+            engine.connect(player, to: engine.mainMixerNode, format: format)
+        }
         observe()
     }
 
@@ -51,8 +53,7 @@ final class CueAudio {
             engine.prepare()
             try engine.start()
         }
-        voice.play()
-        fanfare.play()
+        players.forEach { $0.play() }
     }
 
     /// Queues `cues`, whose offsets count from host time `sessionStart`.
@@ -60,15 +61,20 @@ final class CueAudio {
         for cue in cues {
             guard let buffer = buffers[cue.sound]?.randomElement() else { continue }
             let when = AVAudioTime(hostTime: sessionStart + AVAudioTime.hostTime(forSeconds: cue.offset))
-            let node = cue.sound == .fanfare ? fanfare : voice
+            let node: AVAudioPlayerNode
+            if cue.sound == .cheer {
+                node = cheer
+            } else {
+                node = voices[nextVoice]
+                nextVoice = (nextVoice + 1) % voices.count
+            }
             node.scheduleBuffer(buffer, at: when, options: [], completionHandler: nil)
         }
     }
 
     /// Drops every queued cue. Anything playing stops at once.
     func clear() {
-        voice.stop()
-        fanfare.stop()
+        players.forEach { $0.stop() }
     }
 
     /// Stops the engine and gives the audio session back, unducking other apps.

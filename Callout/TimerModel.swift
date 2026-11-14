@@ -23,7 +23,7 @@ final class TimerModel {
     @ObservationIgnored private var watcher: Task<Void, Never>?
 
     init() {
-        repeats = UserDefaults.standard.object(forKey: "repeats") as? Bool ?? true
+        repeats = UserDefaults.standard.object(forKey: "repeats") as? Bool ?? false
         audio.onInterrupted = { [weak self] in self?.handleInterruption() }
     }
 
@@ -110,9 +110,9 @@ final class TimerModel {
     private func finish() {
         state = .finished
         UIApplication.shared.isIdleTimerDisabled = false
-        // Let the fanfare ring out before releasing the audio session.
+        // Let the cheer ring out before releasing the audio session.
         watcher = Task { [weak self] in
-            try? await Task.sleep(for: .seconds(3))
+            try? await Task.sleep(for: .seconds(4.5))
             guard !Task.isCancelled, let self, self.state == .finished else { return }
             self.audio.shutDown()
         }

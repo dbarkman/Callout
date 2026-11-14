@@ -6,19 +6,20 @@ struct IntervalPlanTests {
 
     @Test func firstRoundCuesLandOnTheRightSeconds() {
         let cues = plan.cues(forRound: 0)
-        #expect(cues.count == 17)
-        #expect(cues.first == Cue(offset: 30, sound: .thirty))
+        #expect(cues.count == 18)
+        #expect(cues.first == Cue(offset: 15, sound: .chime))
+        #expect(cues.contains(Cue(offset: 30, sound: .thirty)))
         #expect(cues.contains(Cue(offset: 45, sound: .fifteen)))
         #expect(cues.contains(Cue(offset: 50, sound: .ten)))
         #expect(cues.filter { $0.sound == .tick }.map(\.offset) == [46, 47, 48, 49, 51, 52, 53, 54])
-        #expect(cues.suffix(6).map(\.sound) == [.five, .four, .three, .two, .one, .fanfare])
-        #expect(cues.last == Cue(offset: 60, sound: .fanfare))
+        #expect(cues.suffix(6).map(\.sound) == [.five, .four, .three, .two, .one, .cheer])
+        #expect(cues.last == Cue(offset: 60, sound: .cheer))
     }
 
     @Test func cuesAreInTimeOrder() {
         let offsets = plan.cues(forRound: 2).map(\.offset)
         #expect(offsets == offsets.sorted())
-        #expect(offsets.first == 150)
+        #expect(offsets.first == 135)
         #expect(offsets.last == 180)
     }
 
@@ -31,11 +32,11 @@ struct IntervalPlanTests {
         #expect(plan.cues(from: 30, throughRound: 0).first == Cue(offset: 30, sound: .thirty))
     }
 
-    @Test func resumingRightAfterARoundStillPlaysItsFanfare() {
-        // Elapsed 60 is round 1, but the fanfare at 60 belongs to round 0.
+    @Test func resumingRightAfterARoundStillPlaysItsCheer() {
+        // Elapsed 60 is round 1, but the cheer at 60 belongs to round 0.
         let cues = plan.cues(from: 60, throughRound: 1)
-        #expect(cues.first == Cue(offset: 60, sound: .fanfare))
-        #expect(cues.last == Cue(offset: 120, sound: .fanfare))
+        #expect(cues.first == Cue(offset: 60, sound: .cheer))
+        #expect(cues.last == Cue(offset: 120, sound: .cheer))
     }
 
     @Test func statusCountsDown() {
