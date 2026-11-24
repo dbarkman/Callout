@@ -46,7 +46,7 @@ public struct IntervalStatus: Equatable, Sendable {
 
 /// A countdown of `roundSeconds`, called out by voice and tones as it nears zero.
 ///
-/// Time left → cue: 45 chime, 30 "Thirty seconds", 15 "Fifteen seconds", 13–11 ticks, 10 "Ten seconds", 9–6 ticks,
+/// Time left → cue: 45 chime, 30 "Thirty seconds", 15 "Fifteen", 14–11 ticks, 10 "Ten", 9–6 ticks,
 /// 5 to 1 counted aloud, 0 applause and cheering. With repeats on, the next round starts the moment the cheer plays.
 public struct IntervalPlan: Equatable, Sendable {
     public static let minimumSeconds = 46
@@ -62,7 +62,7 @@ public struct IntervalPlan: Equatable, Sendable {
     /// The cues of one round, keyed by seconds left when each plays.
     static let cuesByTimeLeft: [(left: Int, sound: CueSound)] = [
         (45, .chime), (30, .thirty), (15, .fifteen),
-        (13, .tick), (12, .tick), (11, .tick),
+        (14, .tick), (13, .tick), (12, .tick), (11, .tick),
         (10, .ten),
         (9, .tick), (8, .tick), (7, .tick), (6, .tick),
         (5, .five), (4, .four), (3, .three), (2, .two), (1, .one),

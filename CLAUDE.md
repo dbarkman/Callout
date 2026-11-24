@@ -1,6 +1,6 @@
 # Callout
 
-An iOS workout interval timer. Each round is one minute. A digital chime plays at 0:45, then a deep male voice calls the rest: "Thirty seconds" at 0:30, "Fifteen seconds" at 0:15, a tick each second from 0:13 to 0:06 with "Ten seconds" at 0:10, then "Five, four, three, two, one" and applause and cheering at zero. With "Repeat" on (off by default), the next round starts the moment the cheer plays and the header counts rounds.
+An iOS workout interval timer. Each round is one minute. A digital chime plays at 0:45, then a deep male voice calls the rest: "Thirty seconds" at 0:30, "Fifteen" at 0:15, a tick each second from 0:14 to 0:06 with "Ten" at 0:10, then "Five, four, three, two, one" and applause and cheering at zero. With "Repeat" on (off by default), the next round starts the moment the cheer plays and the header counts rounds.
 
 ## Layout
 
@@ -11,7 +11,7 @@ An iOS workout interval timer. Each round is one minute. A digital chime plays a
   - `TimerView` draws the ring, time, controls and the repeat toggle inside a `TimelineView`. The ring and background heat from teal to amber, orange and red by phase, and the ring pulses each second during the final five. The toggle is locked while a session is running or paused.
   - `Palette` holds the colors. The app is always dark and portrait, iPhone only.
   - `Sounds/` holds the bundled WAVs. See `SOUNDS.md`.
-- `tools/voice.py` makes voice lines with ElevenLabs text-to-speech, `tools/prep_audio.py` trims, normalizes and copies `sounds-src/` into `Callout/Sounds/` and synthesizes the tick, and `tools/make_icon.swift` renders the app icon.
+- `tools/voice.py` makes voice lines with ElevenLabs text-to-speech, `tools/prep_audio.py` trims, normalizes and copies `sounds-src/` into `Callout/Sounds/` and synthesizes the tick, and `tools/make_icon.swift` renders the app icon. `tools/cut_word.py` cuts a single word out of a phrase take using ElevenLabs forced alignment (`tools/align.py`), and `tools/match.py` ranks takes against a reference clip.
 
 ## Build and test
 

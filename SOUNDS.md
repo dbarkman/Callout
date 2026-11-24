@@ -6,11 +6,18 @@ Voice lines come from ElevenLabs text-to-speech, voice "Brian" (`nPczCjzI2devNBz
 |---|---|---|
 | chime.wav | 0:45 | Synthesized single digital ding (E6) |
 | thirty.wav | 0:30 | TTS "Thirty seconds!" |
-| fifteen.wav | 0:15 | TTS "Fifteen seconds!" (take picked with `tools/match.py` against thirty.wav) |
-| ten.wav | 0:10 | TTS "Ten seconds!" (take picked with `tools/match.py` against thirty.wav) |
+| fifteen.wav | 0:15 | "Fifteen" cut from a TTS "Fifteen seconds!" take (stability 0.3, style 0.65) |
+| ten.wav | 0:10 | "Ten" cut from a TTS "Ten seconds!" take (stability 0.3, style 0.65) |
 | five … one.wav | 0:05 to 0:01 | TTS "Five!" … "One!" |
-| tick.wav | 0:13–0:11, 0:09–0:06 | Synthesized 70 ms 1.4 kHz beep |
+| tick.wav | 0:14–0:11, 0:09–0:06 | Synthesized 70 ms 1.4 kHz beep |
 | cheer1–3.wav | 0:00 (random pick) | ElevenLabs SFX: "stadium crowd applause and cheering, enthusiastic whistles and clapping…", 4 s, 1 s fade-out |
+
+A word said alone ends with a falling pitch and sounds flat. "Fifteen" and "Ten" are therefore generated as "Fifteen seconds!" and "Ten seconds!", and the number is cut out using ElevenLabs forced alignment. That keeps the same lift as "Thirty" in "Thirty seconds!". Takes are ranked against "Thirty" cut the same way:
+
+```bash
+python3 tools/cut_word.py sounds-src/takes2/fifteen_9.wav sounds-src/fifteen.wav "Fifteen seconds!"
+uv run --no-project --with numpy python tools/match.py sounds-src/cuts/thirty_word.wav sounds-src/cuts/fifteen_*.wav
+```
 
 To regenerate a line:
 
