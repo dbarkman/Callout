@@ -12,10 +12,10 @@ Voice lines come from ElevenLabs text-to-speech, voice "Brian" (`nPczCjzI2devNBz
 | tick.wav | 0:14–0:11, 0:09–0:06 | Synthesized 70 ms 1.4 kHz beep |
 | cheer1–3.wav | 0:00 (random pick) | ElevenLabs SFX: "stadium crowd applause and cheering, enthusiastic whistles and clapping…", 4 s, 1 s fade-out |
 
-A word said alone ends with a falling pitch and sounds flat. "Fifteen" and "Ten" are therefore generated as "Fifteen seconds!" and "Ten seconds!", and the number is cut out using ElevenLabs forced alignment. That keeps the same lift as "Thirty" in "Thirty seconds!". Takes are ranked against "Thirty" cut the same way:
+A word said alone ends with a falling pitch and sounds flat. "Fifteen" and "Ten" are therefore generated as "Fifteen seconds!" and "Ten seconds!", and the number is cut out using ElevenLabs forced alignment. That keeps the same lift as "Thirty" in "Thirty seconds!". In this voice the "s" of "seconds" starts right where the number ends, so the cut keeps 120 ms past the aligned end, low-passed to drop the hiss, and fades it out so the final "n" rings out instead of being chopped. Takes are ranked against "Thirty" cut the same way:
 
 ```bash
-python3 tools/cut_word.py sounds-src/takes2/fifteen_9.wav sounds-src/fifteen.wav "Fifteen seconds!"
+uv run --no-project --with numpy python tools/cut_word.py sounds-src/takes2/fifteen_9.wav sounds-src/fifteen.wav "Fifteen seconds!"
 uv run --no-project --with numpy python tools/match.py sounds-src/cuts/thirty_word.wav sounds-src/cuts/fifteen_*.wav
 ```
 
