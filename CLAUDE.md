@@ -1,6 +1,6 @@
 # Callout
 
-An iOS workout interval timer. Each round is one minute. A digital chime plays at 0:45, then a deep male voice calls the rest: "Thirty seconds" at 0:30, "Fifteen" at 0:15, a tick each second from 0:14 to 0:06 with "Ten" at 0:10, then "Five, four, three, two, one" and applause and cheering at zero. With "Repeat" on (off by default), the next round starts the moment the cheer plays and the header counts rounds.
+An iOS workout interval timer. Each round is one minute. A digital chime plays at 0:45, then a deep male voice calls the rest: "Thirty seconds" at 0:30, "Fifteen seconds" at 0:15, a tick each second from 0:13 to 0:06 with "Ten seconds" at 0:10, then "Five, four, three, two, one" and applause and cheering at zero. With "Repeat" on (off by default), the next round starts the moment the cheer plays and the header counts rounds.
 
 ## Layout
 

@@ -6,12 +6,12 @@ struct IntervalPlanTests {
 
     @Test func firstRoundCuesLandOnTheRightSeconds() {
         let cues = plan.cues(forRound: 0)
-        #expect(cues.count == 18)
+        #expect(cues.count == 17)
         #expect(cues.first == Cue(offset: 15, sound: .chime))
         #expect(cues.contains(Cue(offset: 30, sound: .thirty)))
         #expect(cues.contains(Cue(offset: 45, sound: .fifteen)))
         #expect(cues.contains(Cue(offset: 50, sound: .ten)))
-        #expect(cues.filter { $0.sound == .tick }.map(\.offset) == [46, 47, 48, 49, 51, 52, 53, 54])
+        #expect(cues.filter { $0.sound == .tick }.map(\.offset) == [47, 48, 49, 51, 52, 53, 54])
         #expect(cues.suffix(6).map(\.sound) == [.five, .four, .three, .two, .one, .cheer])
         #expect(cues.last == Cue(offset: 60, sound: .cheer))
     }
