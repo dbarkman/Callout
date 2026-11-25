@@ -17,12 +17,13 @@ def write(path, mono, sr):
     w = wave.open(path, "w"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
     w.writeframes(struct.pack("<%dh" % len(mono), *[max(-32767, min(32767, int(x))) for x in mono]))
 
-def trim_norm(mono, sr, peak_db=-1.0, gate_db=-40.0, keep_tail=True, fade_s=0.02):
-    gate = 32768 * 10 ** (gate_db / 20)
+def trim_norm(mono, sr, peak_db=-1.0, gate_db=-50.0, keep_tail=True, fade_s=0.05):
+    # The gate is relative to the clip's peak, so a quiet take keeps its soft ending.
+    gate = max(abs(x) for x in mono) * 10 ** (gate_db / 20)
     start = next(i for i, x in enumerate(mono) if abs(x) > gate)
     end = len(mono) - next(i for i, x in enumerate(reversed(mono)) if abs(x) > gate)
     start = max(0, start - int(sr * 0.005))  # 5 ms pre-roll keeps the attack
-    end = min(len(mono), end + int(sr * 0.05)) if keep_tail else end
+    end = min(len(mono), end + int(sr * 0.15)) if keep_tail else end
     seg = mono[start:end]
     gain = 32768 * 10 ** (peak_db / 20) / max(abs(x) for x in seg)
     fade = int(sr * fade_s)
