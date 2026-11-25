@@ -8,7 +8,7 @@ Voice lines come from ElevenLabs text-to-speech, voice "Brian" (`nPczCjzI2devNBz
 | thirty.wav | 0:30 | TTS "Thirty seconds!" |
 | fifteen.wav | 0:15 | TTS "Fifteen!" with previous text "Thirty seconds!" (stability 0.3, style 0.7) |
 | ten.wav | 0:10 | TTS "Ten!" with previous text "Thirty seconds!" (stability 0.3, style 0.7) |
-| five … one.wav | 0:05 to 0:01 | TTS "Five!" … "One!" |
+| five … one.wav | 0:05 to 0:01 | TTS "Five!" … "One!", each with the two calls before it as previous text (stability 0.3, style 0.7) |
 | tick.wav | 0:14–0:11, 0:09–0:06 | Synthesized 70 ms 1.4 kHz beep |
 | cheer1–3.wav | 0:00 (random pick) | ElevenLabs SFX: "stadium crowd applause and cheering, enthusiastic whistles and clapping…", 4 s, 1 s fade-out |
 
