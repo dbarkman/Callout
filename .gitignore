@@ -5,3 +5,5 @@ build/
 .build/
 CalloutCore/.build/
 .swiftpm/
+sounds-src/takes*/
+sounds-src/cuts/

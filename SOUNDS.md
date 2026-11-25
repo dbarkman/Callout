@@ -12,7 +12,7 @@ Voice lines come from ElevenLabs text-to-speech, voice "Brian" (`nPczCjzI2devNBz
 | tick.wav | 0:14–0:11, 0:09–0:06 | Synthesized 70 ms 1.4 kHz beep |
 | cheer1–3.wav | 0:00 (random pick) | ElevenLabs SFX: "stadium crowd applause and cheering, enthusiastic whistles and clapping…", 4 s, 1 s fade-out |
 
-Each voice line is a whole recording with nothing cut. `prep_audio.py` trims silence with a gate 50 dB below the clip's peak and keeps 150 ms after it, so soft endings ring out. Takes can be ranked against "Thirty seconds" with:
+Each voice line is a whole recording with nothing cut. `prep_audio.py` trims silence with a gate 50 dB below the clip's peak and keeps 150 ms after it, so soft endings ring out. Raw takes live in `sounds-src/takes*/`, which git ignores. Takes can be ranked against "Thirty seconds" with:
 
 ```bash
 uv run --no-project --with numpy python tools/match.py Callout/Sounds/thirty.wav sounds-src/takes4/fifteen_*.wav
